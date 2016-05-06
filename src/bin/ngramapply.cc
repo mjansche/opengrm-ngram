@@ -107,7 +107,7 @@ int main(int argc, char **argv) {
     return 1;
   }
   while (!far_reader->Done()) {
-    StdMutableFst *lattice = MutableFstConvert(far_reader->GetFst().Copy());
+    StdMutableFst *lattice = MutableFstConvert(far_reader->GetFst()->Copy());
     if (type == LEX_EPS) {
       StdVectorFst* cfst = lex_rescorer->Rescore(lattice);
       AddToFar(cfst, lattice, far_reader, far_writer);

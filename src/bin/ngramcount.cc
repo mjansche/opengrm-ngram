@@ -109,7 +109,7 @@ int GetNGramCounts(const string &in_name, const string &out_name) {
   while (!far_reader->Done()) {
     if (ifst)
       delete ifst;
-    ifst = far_reader->GetFst().Copy();
+    ifst = far_reader->GetFst()->Copy();
 
     VLOG(1) << opts.source << "#" << fstnumber;
     if (!ifst) {
