@@ -134,8 +134,9 @@ hist_arc_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
 am__DEPENDENCIES_1 =
 libngram_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
 am_libngram_la_OBJECTS = ngram-absolute.lo ngram-context.lo \
-	ngram-count-prune.lo ngram-kneser-ney.lo ngram-marginalize.lo \
-	ngram-output.lo util.lo
+	ngram-count.lo ngram-count-prune.lo ngram-kneser-ney.lo \
+	ngram-make.lo ngram-marginalize.lo ngram-output.lo \
+	ngram-shrink.lo util.lo
 libngram_la_OBJECTS = $(am_libngram_la_OBJECTS)
 libngram_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CXXLD) $(AM_CXXFLAGS) \
@@ -334,10 +335,13 @@ AM_CPPFLAGS = -I$(srcdir)/../include
 lib_LTLIBRARIES = libngram.la libngramhist.la hist-arc.la
 libngram_la_SOURCES = ngram-absolute.cc \
                       ngram-context.cc \
+                      ngram-count.cc \
                       ngram-count-prune.cc \
                       ngram-kneser-ney.cc \
+                      ngram-make.cc \
                       ngram-marginalize.cc \
                       ngram-output.cc \
+                      ngram-shrink.cc \
                       util.cc
 
 libngram_la_LDFLAGS = -version-info 2:0:0 -lfst -lm
@@ -436,9 +440,12 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ngram-absolute.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ngram-context.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ngram-count-prune.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ngram-count.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ngram-kneser-ney.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ngram-make.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ngram-marginalize.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ngram-output.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ngram-shrink.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/util.Plo@am__quote@
 
 .cc.o:
