@@ -110,7 +110,7 @@ class NGramReplaceMerge : public NGramMerge<StdArc> {
             UpdateDestStates(bo, arc, &dest_states);
           }
           if (dest_states[arc.nextstate] < 0) {
-            NGRAMERROR() << "destination state not set.";
+            NGRAMERROR() << "Destination state not set.";
             NGramModel::SetError();
             return;
           }
@@ -129,7 +129,7 @@ class NGramReplaceMerge : public NGramMerge<StdArc> {
   void UpdateDestStates(StateId st, const StdArc &in_arc,
                         std::vector<StateId> *dest_states) {
     if ((*dest_states)[in_arc.nextstate] >= 0) {
-      NGRAMERROR() << "destination state already set.";
+      NGRAMERROR() << "Destination state already set.";
       NGramModel::SetError();
       return;
     }

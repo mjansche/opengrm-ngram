@@ -12,6 +12,8 @@
 // limitations under the License.
 //
 // Copyright 2005-2016 Brian Roark and Google, Inc.
+#include <cctype>
+
 #include <ngram/ngram-input.h>
 
 namespace ngram {
@@ -21,14 +23,14 @@ void ReadTokenString(const string &str, std::vector<string> *words) {
   while (strit < str.end()) {
     if (words->empty() || isspace(*strit)) {
       while (isspace(*strit)) {
-        strit++;  // Skips whitespace sequence.
+        ++strit;  // Skips whitespace sequence.
       }
       if (strit != str.end()) {
-        words->push_back(string());  // Starts new empty word.
+        words->emplace_back();  // Starts new empty word.
       }
     } else {
       (*words)[words->size() - 1] += (*strit);  // Adds character to words.
-      strit++;
+      ++strit;
     }
   }
 }

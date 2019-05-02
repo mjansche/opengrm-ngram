@@ -75,6 +75,7 @@ class NGramListPrune : public NGramShrink<StdArc> {
   // A pair (Label, State ID) or (State ID, State ID)
   using Pair = std::pair<ssize_t, ssize_t>;
 
+  // TODO(roark): unify with struct in ngram-count.h and benchmark.
   struct PairHash {
     size_t operator()(const Pair &p) const {
       return (static_cast<size_t>(p.first) * 55697) ^

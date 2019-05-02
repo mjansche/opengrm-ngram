@@ -64,8 +64,7 @@ int main(int argc, char **argv) {
       LOG(WARNING) << "list_file parameter empty, no n-grams given";
       return 1;
     }
-    std::ifstream ifstrm;
-    ifstrm.open(FLAGS_list_file);
+    std::ifstream ifstrm(FLAGS_list_file);
     if (!ifstrm) {
       LOG(WARNING) << "NGramShrink: Can't open " << FLAGS_list_file
                    << " for reading";
