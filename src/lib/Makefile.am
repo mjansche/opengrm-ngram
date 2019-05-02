@@ -6,7 +6,9 @@ libngram_la_SOURCES = ngram-absolute.cc \
                       ngram-context.cc \
                       ngram-count.cc \
                       ngram-count-prune.cc \
+                      ngram-input.cc \
                       ngram-kneser-ney.cc \
+                      ngram-list-prune.cc \
                       ngram-make.cc \
                       ngram-marginalize.cc \
                       ngram-output.cc \
